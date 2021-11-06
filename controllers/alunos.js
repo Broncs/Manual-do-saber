@@ -8,10 +8,14 @@ const getAllAlunos = asyncWrapper(async (req, res) => {
 });
 
 const createAlunos  = asyncWrapper(async (req, res) => {
+  console.log(req.body); 
+
+
   const alunos = await Alunos.create(req.body);
+  
 
   res.status(201).json({ alunos });
-});
+ });
 
 const getAlunos  = asyncWrapper(async (req, res, next) => {
   const { id: taskID } = req.params;
